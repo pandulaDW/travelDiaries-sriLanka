@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "gatsby-image";
 import { useStaticQuery, graphql } from "gatsby";
 import { AiOutlineMenuFold } from "react-icons/ai";
@@ -18,17 +18,31 @@ const query = graphql`
 `;
 
 const Navbar = () => {
+  const [isOpen, setNav] = useState(false);
+
+  const toggleNav = () => {
+    setNav(isOpen => !isOpen);
+  };
+
   const { file } = useStaticQuery(query);
   return (
     <nav className={styles.navContainer}>
-      <Image fluid={file.childImageSharp.fluid} className={styles.logoImg} />
-      <ul>
-        <li>Tours</li>
-        <li>Hotels</li>
-        <li>Locations</li>
-        <li>Contact Us</li>
-      </ul>
-      <AiOutlineMenuFold className={styles.menuIcon} />
+      <div className={styles.menuContainer}>
+        <Image fluid={file.childImageSharp.fluid} className={styles.logoImg} />
+        <ul
+          className={
+            isOpen
+              ? `${styles.navLinks} ${styles.showNav}`
+              : `${styles.navLinks} ${styles.hideNav}`
+          }
+        >
+          <li>Tours</li>
+          <li>Hotels</li>
+          <li>Locations</li>
+          <li>Contact Us</li>
+        </ul>
+      </div>
+      <AiOutlineMenuFold className={styles.menuIcon} onClick={toggleNav} />
     </nav>
   );
 };
