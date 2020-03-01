@@ -58,6 +58,9 @@ typings/
 .cache/
 public
 
+# scala metals file
+.metals/
+
 # Mac files
 .DS_Store
 
