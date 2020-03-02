@@ -4,6 +4,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/common/layout";
 import HeroHeader from "../components/common/HeroHeader";
 import About from "../components/index/About";
+import Features from "../components/index/Features";
 
 export default ({ data }) => (
   <Layout>
@@ -14,6 +15,7 @@ export default ({ data }) => (
       subtitle="of the indian ocean awaits you"
     />
     <About />
+    <Features />
   </Layout>
 );
 
