@@ -7,8 +7,16 @@
   width: 80%;
   margin: 5rem auto 0;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 10rem;
+  grid-template-columns: repeat(auto-fill, minmax(400px, max-content));
+  grid-gap: 10rem;
+  justify-items: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 450px) {
+  .about-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, max-content));
+  }
 }
 
 .about-information {
@@ -21,39 +29,71 @@
     text-align: left;
 
     h3 {
-      font-size: 1.5rem;
-      letter-spacing: 1px;
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
     }
 
     p {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       line-height: 1.8;
     }
 
     &:not(:last-child) {
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
     }
   }
 }
 
 .about-images {
   display: grid;
-  grid-template-columns: repeat(5, 120px);
-  grid-template-rows: repeat(5, 80px);
+  grid-template-columns: repeat(5, 10rem);
+  grid-template-rows: repeat(5, 7rem);
 
   .image-1 {
     grid-row: 1 / 4;
     grid-column: 1 / 4;
+    z-index: 1;
+    transition: all 0.4s ease-in;
+    outline-offset: 1.5rem;
+
+    &:hover {
+      outline: 1.5rem solid var(--color-primary);
+      z-index: 10;
+      transform: scale(1.1);
+      box-shadow: 0 2.5rem 4rem rgba($color: #000000, $alpha: 0.5);
+    }
   }
 
   .image-2 {
     grid-row: 2 / 5;
     grid-column: 3 / 6;
+    z-index: 2;
+    transition: all 0.3s ease-in;
+    outline-offset: 1.5rem;
+
+    &:hover {
+      outline: 1.5rem solid var(--color-primary);
+      z-index: 10;
+      transform: scale(1.1);
+      box-shadow: 0 2.5rem 4rem rgba($color: #000000, $alpha: 0.5);
+    }
   }
 
   .image-3 {
     grid-row: 3 / 6;
     grid-column: 2 / 5;
+    z-index: 3;
+    transition: all 0.3s ease-in;
+    outline-offset: 1.5rem;
+
+    &:hover {
+      outline: 1.5rem solid var(--color-primary);
+      z-index: 10;
+      transform: scale(1.1);
+      box-shadow: 0 2.5rem 4rem rgba($color: #000000, $alpha: 0.5);
+    }
   }
 }
 
@@ -61,4 +101,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  box-shadow: 0 1.5rem 4rem rgba($color: #000000, $alpha: 0.4);
+  border-radius: 2px;
 }
