@@ -1,14 +1,15 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
-import { FaHotel, FaMap, FaMountain } from "react-icons/fa";
-import { IoIosPeople } from "react-icons/io";
+import { FaHotel, FaMap, FaMountain, FaUserFriends } from "react-icons/fa";
 
 import styles from "../../sass/features.module.scss";
 
 const query = graphql`
   query {
-    backgroundImage: contentfulAsset(title: { eq: "hill-country-evening" }) {
+    backgroundImage: contentfulAsset(
+      title: { eq: "sigirya-long-distance-view" }
+    ) {
       fluid(quality: 100) {
         ...GatsbyContentfulFluid_tracedSVG
       }
@@ -34,6 +35,44 @@ const Features = () => {
           zIndex: -1,
         }}
       />
+      <div className={styles.featureContainer}>
+        <div className={styles.featureCard}>
+          <FaMap className={styles.featureCardIcon} />
+          <h1>Custom or Readymade Tours</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus,
+            voluptate facere! Nisi quisquam quo cupiditate eos earum fugiat
+            sapiente ut ducimus ad.
+          </p>
+        </div>
+        <div className={styles.featureCard}>
+          <FaHotel className={styles.featureCardIcon} />
+          <h1>Best Hotel Recommendations</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus,
+            voluptate facere! Nisi quisquam quo cupiditate eos earum fugiat
+            sapiente ut ducimus ad.
+          </p>
+        </div>
+        <div className={styles.featureCard}>
+          <FaUserFriends className={styles.featureCardIcon} />
+          <h1>Experienced and friendly guides</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus,
+            voluptate facere! Nisi quisquam quo cupiditate eos earum fugiat
+            sapiente ut ducimus ad.
+          </p>
+        </div>
+        <div className={styles.featureCard}>
+          <FaMountain className={styles.featureCardIcon} />
+          <h1>Explore unseen Sri Lanka</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus,
+            voluptate facere! Nisi quisquam quo cupiditate eos earum fugiat
+            sapiente ut ducimus ad.
+          </p>
+        </div>
+      </div>
     </section>
   );
 };
