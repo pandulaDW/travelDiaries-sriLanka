@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Image from "gatsby-image";
 import { useStaticQuery, graphql } from "gatsby";
 import { AiOutlineMenuFold } from "react-icons/ai";
+import AniLink from "gatsby-plugin-transition-link/AniLink";
+import { v4 as uuidv4 } from "uuid";
 
 import styles from "../../sass/navbar.module.scss";
 
@@ -28,7 +30,12 @@ const Navbar = () => {
   return (
     <nav className={styles.navContainer}>
       <div className={styles.menuContainer}>
-        <Image fluid={file.childImageSharp.fluid} className={styles.logoImg} />
+        <AniLink fade to="/">
+          <Image
+            fluid={file.childImageSharp.fluid}
+            className={styles.logoImg}
+          />
+        </AniLink>
         <ul
           className={
             isOpen
@@ -36,10 +43,14 @@ const Navbar = () => {
               : `${styles.navLinks} ${styles.hideNav}`
           }
         >
-          <li>Tours</li>
-          <li>Hotels</li>
-          <li>Locations</li>
-          <li>Contact Us</li>
+          <li key={uuidv4()}>Tours</li>
+          <li key={uuidv4()}>Hotels</li>
+          <li key={uuidv4()}>
+            <AniLink fade to="/locations">
+              Locations
+            </AniLink>
+          </li>
+          <li key={uuidv4()}>Contact Us</li>
         </ul>
       </div>
       <AiOutlineMenuFold className={styles.menuIcon} onClick={toggleNav} />

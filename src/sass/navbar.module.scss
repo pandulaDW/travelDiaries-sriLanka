@@ -23,9 +23,13 @@
     li {
       padding: 0 1.2rem;
       font-size: 2.4rem;
-      color: white;
       cursor: pointer;
-      transition: all 0.4s ease-in;
+      transition: all 0.2s ease-in;
+      color: white;
+
+      a {
+        text-decoration: none;
+      }
 
       &:hover {
         transform: translateY(-1.1px);
