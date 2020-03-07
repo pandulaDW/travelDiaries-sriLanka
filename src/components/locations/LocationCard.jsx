@@ -39,6 +39,12 @@ const CardWrapper = styled.div`
     transition: all 0.5s ease-out;
   }
 
+  @media screen and (max-width: 800px) {
+    .image-content {
+      height: 40rem;
+    }
+  }
+
   .image-content:hover {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
@@ -48,6 +54,11 @@ const CardWrapper = styled.div`
     width: 100%;
     object-fit: cover;
     object-position: center;
+    transition: all 0.5s ease-out;
+
+    &:hover {
+      height: 110%;
+    }
   }
 
   .text-content {

@@ -4,6 +4,7 @@ import Image from "gatsby-image";
 
 import styles from "../../sass/about.module.scss";
 import Heading from "../common/Heading";
+import ButtonSmall from "../common/ButtonSmall";
 
 const query = graphql`
   query {
@@ -68,6 +69,9 @@ const About = () => {
               . And above all, a smiling, simple, hospitable people are a
               delight to any visitor to our shores.
             </p>
+          </div>
+          <div className={styles.btnSmall}>
+            <ButtonSmall text="Learn more &rarr;" link="/locations" />
           </div>
         </div>
         <div className={styles.aboutImages}>
